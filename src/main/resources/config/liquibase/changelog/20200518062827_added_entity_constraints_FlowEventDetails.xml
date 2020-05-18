@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity FlowEventDetails.
+    -->
+    <changeSet id="20200518062827-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="flow_id_id"
+                                 baseTableName="flow_event_details"
+                                 constraintName="fk_flow_event_details_flow_id_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="flow_details"/>
+
+    </changeSet>
+</databaseChangeLog>
