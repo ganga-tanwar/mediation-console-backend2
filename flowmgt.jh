@@ -1,0 +1,49 @@
+// AH mediation entities
+#title: Mediation
+
+LONG_STRING_MAX_LENGTH = 100
+
+/** Class representing flows */
+entity FlowDetails {
+    flowId UUID required,
+	flowName String required maxlength(LONG_STRING_MAX_LENGTH),
+	mediationSystem String required maxlength(LONG_STRING_MAX_LENGTH),
+	source String required maxlength(LONG_STRING_MAX_LENGTH),
+	destination String required maxlength(LONG_STRING_MAX_LENGTH),
+	fileName String,
+	transactionDate Instant required,
+	transactionId UUID required,
+	format String,
+	sourceEndpointInterface String required maxlength(LONG_STRING_MAX_LENGTH),
+	destinationEndpointInterface String required maxlength(LONG_STRING_MAX_LENGTH),
+	acknowledgmentExpected String required maxlength(LONG_STRING_MAX_LENGTH),
+	acknowledgmentReceived String maxlength(LONG_STRING_MAX_LENGTH)	
+}
+
+/** Class representing flowEventDetails */
+entity FlowEventDetails {
+    eventId UUID required,
+	eventName String required maxlength(LONG_STRING_MAX_LENGTH),
+	transactionDate Instant required,
+	parameters String required maxlength(LONG_STRING_MAX_LENGTH),
+	status String required maxlength(LONG_STRING_MAX_LENGTH),
+	errorCode String required maxlength(LONG_STRING_MAX_LENGTH),
+	errorInfo String required maxlength(250),
+	errorCodeRetriable String required
+}
+
+// defining multiple ManyToOne relationships with comments
+relationship ManyToOne {
+    FlowEventDetails{flowId required} to FlowDetails
+}
+
+// Set pagination options
+paginate FlowDetails with pagination
+
+// Set service options
+//service FlowDetails, FlowEventDetails
+service all with serviceClass
+dto * with mapstruct
+
+// Set filter options
+filter FlowDetails
