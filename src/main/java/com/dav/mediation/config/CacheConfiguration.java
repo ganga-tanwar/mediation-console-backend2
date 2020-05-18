@@ -42,6 +42,8 @@ public class CacheConfiguration {
     @Bean
     public JCacheManagerCustomizer cacheManagerCustomizer() {
         return cm -> {
+            createCache(cm, com.dav.mediation.domain.FlowDetails.class.getName());
+            createCache(cm, com.dav.mediation.domain.FlowEventDetails.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }
