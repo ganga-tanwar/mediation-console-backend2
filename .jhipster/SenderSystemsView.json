@@ -1,0 +1,25 @@
+{
+  "name": "SenderSystemsView",
+  "fields": [
+    {
+      "fieldName": "senderIs",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20200526082949",
+  "javadoc": "Class representing SenderSystemsView",
+  "entityTableName": "sender_systems_view",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "mediation",
+  "applications": "*",
+  "microserviceName": "mediation"
+}

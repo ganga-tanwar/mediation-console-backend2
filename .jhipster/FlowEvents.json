@@ -1,0 +1,56 @@
+{
+  "name": "FlowEvents",
+  "fields": [
+    {
+      "fieldName": "remarks",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "errorCode",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "flowStatus",
+      "otherEntityRelationshipName": "flowEvents",
+      "relationshipValidateRules": "required",
+      "relationshipName": "flowTransactions",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "eventMaster",
+      "otherEntityRelationshipName": "flowEvents",
+      "relationshipValidateRules": "required",
+      "relationshipName": "event",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "eventStatusMaster",
+      "otherEntityRelationshipName": "flowEvents",
+      "relationshipValidateRules": "required",
+      "relationshipName": "status",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200526083449",
+  "javadoc": "Class representing FlowEvents",
+  "entityTableName": "flow_events",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "mediation",
+  "applications": "*",
+  "microserviceName": "mediation"
+}
