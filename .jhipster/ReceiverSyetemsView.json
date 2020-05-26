@@ -1,0 +1,25 @@
+{
+  "name": "ReceiverSyetemsView",
+  "fields": [
+    {
+      "fieldName": "receiverIs",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20200526083049",
+  "javadoc": "Class representing ReceiverSyetemsView",
+  "entityTableName": "receiver_syetems_view",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "mediation",
+  "applications": "*",
+  "microserviceName": "mediation"
+}

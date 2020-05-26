@@ -1,0 +1,31 @@
+{
+  "name": "FlowNameTypeView",
+  "fields": [
+    {
+      "fieldName": "flowName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "flowType",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20200526082849",
+  "javadoc": "Class representing FlowNameTypeView",
+  "entityTableName": "flow_name_type_view",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "mediation",
+  "applications": "*",
+  "microserviceName": "mediation"
+}

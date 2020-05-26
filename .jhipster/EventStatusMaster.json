@@ -1,0 +1,30 @@
+{
+  "name": "EventStatusMaster",
+  "fields": [
+    {
+      "fieldName": "statusId",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20200526083149",
+  "javadoc": "Class representing EventMaster",
+  "entityTableName": "event_status_master",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "mediation",
+  "applications": "*",
+  "microserviceName": "mediation"
+}

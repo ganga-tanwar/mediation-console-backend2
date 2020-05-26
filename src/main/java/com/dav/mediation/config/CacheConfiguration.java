@@ -44,6 +44,14 @@ public class CacheConfiguration {
         return cm -> {
             createCache(cm, com.dav.mediation.domain.FlowDetails.class.getName());
             createCache(cm, com.dav.mediation.domain.FlowEventDetails.class.getName());
+            createCache(cm, com.dav.mediation.domain.EventMaster.class.getName());
+            createCache(cm, com.dav.mediation.domain.FlowNameTypeView.class.getName());
+            createCache(cm, com.dav.mediation.domain.SenderSystemsView.class.getName());
+            createCache(cm, com.dav.mediation.domain.ReceiverSyetemsView.class.getName());
+            createCache(cm, com.dav.mediation.domain.EventStatusMaster.class.getName());
+            createCache(cm, com.dav.mediation.domain.FlowStatus.class.getName());
+            createCache(cm, com.dav.mediation.domain.FlowTransactionsView.class.getName());
+            createCache(cm, com.dav.mediation.domain.FlowEvents.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }
