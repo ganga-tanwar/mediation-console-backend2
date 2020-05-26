@@ -1,0 +1,92 @@
+// AH mediation entities
+#title: Mediation
+
+LONG_STRING_MAX_LENGTH = 50;
+
+
+/** Class representing EventMaster */
+entity EventMaster {
+    eventId bigint required,
+	eventName String required maxlength(LONG_STRING_MAX_LENGTH),
+	description String maxlength(100)
+}
+
+
+/** Class representing FlowNameTypeView */
+entity FlowNameTypeView {
+    flowName String required maxlength(LONG_STRING_MAX_LENGTH),
+	flowType String required maxlength(LONG_STRING_MAX_LENGTH)
+}
+
+/** Class representing SenderSystemsView */
+entity SenderSystemsView {
+    senderIs String required maxlength(LONG_STRING_MAX_LENGTH)
+}
+/** Class representing ReceiverSyetemsView */
+entity ReceiverSyetemsView {
+    receiverIs String required maxlength(LONG_STRING_MAX_LENGTH)
+}
+
+/** Class representing EventMaster */
+entity EventStatusMaster {
+    statusId bigint required,
+	status String required maxlength(LONG_STRING_MAX_LENGTH)
+}
+
+/** Class representing flow transactions */
+entity FlowStatus {
+    flowId UUID required,
+	flowName String required maxlength(LONG_STRING_MAX_LENGTH),
+	flowType String required maxlength(LONG_STRING_MAX_LENGTH),	
+	senderIs String required maxlength(LONG_STRING_MAX_LENGTH),
+	senderProtocol String required maxlength(LONG_STRING_MAX_LENGTH),
+	sourceInstance String required maxlength(LONG_STRING_MAX_LENGTH),
+	receiverIs String required maxlength(LONG_STRING_MAX_LENGTH),
+	receiverProtocol String required maxlength(LONG_STRING_MAX_LENGTH),
+	targetInstance String required maxlength(LONG_STRING_MAX_LENGTH),
+	filePayload String,
+	flowDateTime Instant required
+}
+
+/** Class representing flow transactions */
+entity FlowTransactionsView {
+    flowId UUID required,
+	flowName String required maxlength(LONG_STRING_MAX_LENGTH),
+	flowType String required maxlength(LONG_STRING_MAX_LENGTH),	
+	senderIs String required maxlength(LONG_STRING_MAX_LENGTH),
+	senderProtocol String required maxlength(LONG_STRING_MAX_LENGTH),
+	sourceInstance String required maxlength(LONG_STRING_MAX_LENGTH),
+	receiverIs String required maxlength(LONG_STRING_MAX_LENGTH),
+	receiverProtocol String required maxlength(LONG_STRING_MAX_LENGTH),
+	targetInstance String required maxlength(LONG_STRING_MAX_LENGTH),
+	filePayload String,
+	flowDateTime Instant required,
+	status String required  maxlength(LONG_STRING_MAX_LENGTH)
+}
+
+
+/** Class representing FlowEvents */
+entity FlowEvents {
+	remarks String maxlength(LONG_STRING_MAX_LENGTH),
+	errorCode String required maxlength(LONG_STRING_MAX_LENGTH)
+}
+
+// defining multiple ManyToOne relationships with comments
+relationship ManyToOne {
+    FlowEvents{flowDetails required} to FlowStatus,
+	FlowEvents{event required} to EventMaster,
+	FlowEvents{status required} to EventStatusMaster
+}
+
+// Set pagination options
+paginate FlowDetails with pagination
+
+// Set service options
+//service FlowDetails, FlowEventDetails
+service all with serviceClass
+dto * with mapstruct
+
+// Set filter options
+filter FlowDetails
+
+
